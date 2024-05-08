@@ -34,6 +34,7 @@
 <a href="produse.php"><h2> <div class= "produse-text"> PRODUSE </h2></div></a>
      <a href="index1.html"><h2> <div class= "home-text"> HOME </h2></div></a>
 	 <a href="despre.html"><h2> <div class= "despre-text"> DESPRE </h2></div></a>
+	 
 
 
 <?php
@@ -53,13 +54,18 @@ if(isset($_GET['id_produs'])) {
         $row = mysqli_fetch_assoc($result);
         $menu_item_name = $row["nume_produs"];
 
-        // Display menu item details
+      echo "<div style = 'position: relative; color: white; top: 40px; font-family: Seri, Times New Roman;'><h2> $menu_item_name buna alegere :) </h2></div>";
      
-        echo "<div class = 'alege-text'><h1><u>Alege ingredintele:</u>  <input type = 'checkbox' onclick ='checkAll(this)'/><i> De Toate </i> <br><h2>(Aici dispare misterul)</h2></h1></div>";
-        echo "<div style = 'position: relative; color: white; top: 100px; font-family: Seri, Times New Roman;'><h2> $menu_item_name buna alegere :) </h2></div>";
-		echo "<form method='post' action='script1.php?id_produs= $id_produs'>";
+
+    } 
+?>
+
+
+         <div class = 'alege-text'><h1><u>Alege ingredintele:</u>  <input type = 'checkbox' onclick ='checkAll(this)'/><i> De Toate </i> <br><h2>(Aici dispare misterul)</h2></h1></div>
+         
+		<form method='post' action='script1.php?id_produs= $id_produs'>
         
-       echo  '<br><div class = "carne-text"><h2>Carne </div></h2></br>
+       <br><div class = "carne-text"><h2>Carne </div></h2></br>
 
 <img src = "bunbun.jpg" style = " width: 120px; height: 120px; border-radius: 50%; position: relative; top: 90px "> <img src = "falafel.jpg" style = " width: 120px; height: auto; border-radius: 50%; position: relative; top: 90px; left: 90px "> 
 <br><div class = "optiunic-text"><input type = "checkbox" name = "ingredient[]" value = "carne" class = "exception"> Carne de porc </div>
@@ -86,26 +92,23 @@ if(isset($_GET['id_produs'])) {
 <div class = "tza"> <input type = "checkbox" name = "ingredient[]" value = "tzatziki"> tzatziki </div>
 
   <br><div class = "spice-text"> Spice </div></br>
-<div class = "iute"> <input type = "checkbox" name = "ingredient[]" value = "sos iute" class = "exception"> sos iute &#127798</div>';
+<div class = "iute"> <input type = "checkbox" name = "ingredient[]" value = "sos iute" class = "exception"> sos iute </div> &#127798
         
 
-        echo "<br>";
-        // Hidden input to pass the selected menu item ID to the confirmation page
-		echo "<div class = 'box3'>";
-        echo "<input type='hidden' name= 'id_produs' value='$id_produs'>";
-		echo "<div class = 'livrare'>";
-		echo "<h2> Detalii livrare </h2>";
-		echo "<br><label for= 'nume_client'> Nume complet: </label> <input type= 'textbox' name = 'nume_client' required>";
-		echo "<br><label for= 'telefon'> Telefon: </label> <input type= 'textbox' name = 'telefon' required>";
-		echo "<br><label for='email'>Email: </label><input type= 'email' name = 'email' required>";
-		echo "<br><label for='adresa'> Adresa: </label> <input type= 'textbox' name = 'adresa' required>";
-		echo "<br><input type = 'submit' name = 'comanda' value = 'comanda' class = 'buton'>";
-		echo "</div>";
-		echo "</div>";
-        echo "</form>";
-
-    } 
-?>
+        <br>
+        
+		<div class = 'box3'>
+        <input type='hidden' name= 'id_produs' value='$id_produs'>
+		<div class = 'livrare'>
+		<h2> Detalii livrare </h2>
+		<br><label for= 'nume_client'> Nume complet: </label> <input type= 'textbox' name = 'nume_client' required>
+		<br><label for= 'telefon'> Telefon: </label> <input type= 'textbox' name = 'telefon' required>
+		<br><label for='email'>Email: </label><input type= 'email' name = 'email' required>
+		<br><label for='adresa'> Adresa: </label> <input type= 'textbox' name = 'adresa' required>
+		<br><input type = 'submit' name = 'comanda' value = 'comanda' class = 'buton'>
+		</div>
+		</div>
+       </form>
 
     
 
